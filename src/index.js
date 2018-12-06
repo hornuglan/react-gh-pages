@@ -22,6 +22,11 @@ function Square(props) {
 
     handleClick(i) {
         const squares = this.state.squares.slice();
+
+        if (calculateWinner(squares) || squares[i]) {
+            return;
+        }
+        
         squares[i] = this.state.xIsNext ? 'X' : 'O';
         this.setState({
             squares: squares,
@@ -45,7 +50,7 @@ function Square(props) {
     if (winner) {
         status = 'Winner: ' + winner;
     } else {
-        status = 'Next player: ' + this.state.xIsNext ? 'X' : 'O'
+        status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
   
       return (
