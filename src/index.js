@@ -20,7 +20,7 @@ const Square = (props) => {
         };
     }
 
-    handleClick(i) {
+    handleClick = (i) => {
         const squares = this.state.squares.slice();
 
         if (calculateWinner(squares) || squares[i]) {
@@ -34,7 +34,7 @@ const Square = (props) => {
         });
     }
 
-    renderSquare(i) {
+    renderSquare = (i) => {
       return (
       <Square
        value={this.state.squares[i]} 
